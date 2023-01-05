@@ -26,7 +26,6 @@
       "OEngine\\Highlight\\Tests\\": "tests"
     }
   },
-  "prefer-stable": true,
   "require-dev": {},
   "extra": {
     "laravel": {
@@ -35,5 +34,10 @@
       ],
       "aliases": {}
     }
-  }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
