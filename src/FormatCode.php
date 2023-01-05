@@ -77,7 +77,7 @@ class FormatCode
         } elseif (in_array($lang, XMLFormat::$Keys)) {
             $highlighter = new XMLFormat($block);
         } else {
-            $highlighter = new PHPFormat($block);
+            $highlighter = new BashFormat($block);
         }
         if ($theme) {
             $highlighter->setTheme(new Theme($theme));
