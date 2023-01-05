@@ -21,13 +21,11 @@
   "require-dev": {},
   "autoload": {
     "psr-4": {
-      "OEngine\\Highlight\\": "src"
+      "OEngine\\Highlight\\": "src/"
     }
   },
   "autoload-dev": {
-    "psr-4": {
-      "OEngine\\Highlight\\Tests\\": "tests"
-    }
+    "psr-4": {}
   },
   "scripts": {
     "analyse": "vendor/bin/phpstan analyse",

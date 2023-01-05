@@ -32,7 +32,7 @@ $ composer require oengine/highlight
 
 require_once 'vendor/autoload.php';
 
-use OEngine\Highlight\Highlighter;
+use OEngine\Highlight\FormatCode;
 
 $text = '
 <pre data-file="php-highlight/examples/index.php" data-lang="php">
@@ -73,11 +73,7 @@ echo $class->prefixName("Pacwoman"), "\n";
 </pre>
 ';
 
-$highlighter = new Highlighter($text, 'railscasts');
-// Configuration
-$highlighter->setShowLineNumbers(true);
-$highlighter->setShowActionPanel(true);
-echo $highlighter->parse();
+echo FormatCode::Highlight($text, 'railscasts',true,true);
 ```
 
 ### Language syntax support
