@@ -12,10 +12,12 @@
   "authors": [
     {
       "name": "nguyen van hau",
-      "email": "nguyenvanhaudev@gmail.com"
+      "email": "nguyenvanhau.soft@gmail.com",
+      "role": "Developer"
     }
   ],
   "require": {},
+  "require-dev": {},
   "autoload": {
     "psr-4": {
       "OEngine\\Highlight\\": "src"
@@ -26,7 +28,12 @@
       "OEngine\\Highlight\\Tests\\": "tests"
     }
   },
-  "require-dev": {},
+  "scripts": {
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage",
+    "format": "vendor/bin/pint"
+  },
   "extra": {
     "laravel": {
       "providers": [
