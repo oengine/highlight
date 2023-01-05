@@ -10,6 +10,17 @@ use OEngine\Highlight\Themes\Theme;
 
 class FormatCode
 {
+    public static function Highlight(string $text, string $theme = '', bool| null $isNumberLine = null, bool| null $isActionPanel = null)
+    {
+        $formatCode = new FormatCode($text, $theme);
+        if ($isNumberLine) {
+            $formatCode->setShowLineNumbers(true);
+        }
+        if ($isActionPanel) {
+            $formatCode->setShowActionPanel(true);
+        }
+        return $formatCode->parse();
+    }
     /** @var string */
     protected  $_text;
 
