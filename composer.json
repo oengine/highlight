@@ -23,7 +23,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "OEngine\\Highlight\\Tests\\": "tests"
+      "OEngine\\Highlight\\Tests\\": "tests/"
     }
   },
   "require-dev": {},
