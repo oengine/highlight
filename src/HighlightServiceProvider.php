@@ -14,11 +14,11 @@ class HighlightServiceProvider extends ServiceProvider
             <?php ob_start(); ?>"; //return this if statement inside php tag
         });
 
-        Blade::directive('endhighlight', function ($theme) {
+        Blade::directive('endhighlight', function ($theme='html') {
             return "
             <?php
             \$__highlights = ob_get_clean();
-            echo \OEngine\Highlight\FormatCode::Highlight(\$__highlights,{$theme}));
+            echo \OEngine\Highlight\FormatCode::Highlight(\$__highlights,{$theme});
             ?>
             "; //return this endif statement inside php tag
         });
