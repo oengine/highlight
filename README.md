@@ -1,9 +1,5 @@
 # OEngine\Highlight
 
-I use ideas from:
-
-https://github.com/demyanovs/php-highlight
-
 OEngine\Highlight is a PHP library for highlighting syntax that can be easily configured and extended.
 
 The library parses the text, finds the tag \<pre>, read attributes (data-lang, data-file, data-theme), and for this reason decides how to highlight the syntax of this block.

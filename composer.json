@@ -1,7 +1,6 @@
 {
   "name": "oengine/highlight",
   "description": "A PHP library for highlighting code syntax.",
-  "type": "library",
   "license": "MIT",
   "keywords": [
     "php-highlight",
