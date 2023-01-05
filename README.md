@@ -1,4 +1,4 @@
-# OEngine\Highlight
+# Highlight
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/oengine/highlight.svg?style=flat-square)](https://packagist.org/packages/oengine/highlight)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/oengine/highlight/run-tests?label=tests)](https://github.com/oengine/highlight/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/oengine/highlight/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/oengine/highlight/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
