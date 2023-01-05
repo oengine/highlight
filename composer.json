@@ -9,6 +9,7 @@
     "codehighlighting",
     "syntax-highlighting"
   ],
+  "homepage": "https://github.com/oengine/highlight",
   "authors": [
     {
       "name": "nguyen van hau",
