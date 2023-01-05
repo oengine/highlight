@@ -26,6 +26,7 @@
       "OEngine\\Highlight\\Tests\\": "tests"
     }
   },
+  "prefer-stable": true,
   "require-dev": {},
   "extra": {
     "laravel": {
