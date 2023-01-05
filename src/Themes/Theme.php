@@ -23,12 +23,12 @@ class Theme
         }
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->_name;
     }
 
-    private function defaultTheme() : void
+    private function defaultTheme(): void
     {
         // Default
         self::setDefaultColor('#000;');
@@ -54,7 +54,7 @@ class Theme
         self::setPHPStringColor('#DD0000;');
     }
 
-    private function darkulaTheme() : void
+    private function darkulaTheme(): void
     {
         // Default
         self::setDefaultColor('#bababa;');
@@ -80,7 +80,7 @@ class Theme
         self::setPHPStringColor('#6a8759;');
     }
 
-    private function railscastsTheme() : void
+    private function railscastsTheme(): void
     {
         // Default
         self::setDefaultColor('#bababa;');
@@ -106,7 +106,7 @@ class Theme
         self::setPHPStringColor('#a5c261;');
     }
 
-    private function obsidianTheme() : void
+    private function obsidianTheme(): void
     {
         // Default
         self::setDefaultColor('#e0e2e4;');
@@ -132,7 +132,7 @@ class Theme
         self::setPHPStringColor('#ec7600;');
     }
 
-    private function farTheme() : void
+    private function farTheme(): void
     {
         // Default
         self::setDefaultColor('#e0e2e4;');
@@ -158,7 +158,7 @@ class Theme
         self::setPHPStringColor('#ff0;');
     }
 
-    private function vs2015Theme() : void
+    private function vs2015Theme(): void
     {
         // Default
         self::setDefaultColor('#DCDCDC;');
@@ -184,7 +184,7 @@ class Theme
         self::setPHPStringColor('#D69D85;');
     }
 
-    private function c64Theme() : void
+    private function c64Theme(): void
     {
         // Default
         self::setDefaultColor('#70A4B2;');

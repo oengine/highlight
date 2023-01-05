@@ -2,13 +2,16 @@
 
 namespace OEngine\Highlight;
 
+use OEngine\Highlight\Formats\BashFormat;
+use OEngine\Highlight\Formats\PHPFormat;
+use OEngine\Highlight\Formats\XMLFormat;
 use OEngine\Highlight\Themes\Styles;
 use OEngine\Highlight\Themes\Theme;
 
-class Highlighter
+class FormatCode
 {
     /** @var string */
-    protected static $_text;
+    protected  $_text;
 
     /** @var bool */
     private $_showActionPanel = true;
@@ -21,7 +24,7 @@ class Highlighter
 
     public function __construct(string $text, string $theme = '')
     {
-        self::$_text  = str_replace('<?php', '&lt;?php', $text);
+        $this->_text  = str_replace('<?php', '&lt;?php', $text);
         $this->_theme = new Theme($theme);
     }
 
@@ -49,20 +52,21 @@ class Highlighter
 
                 return $this->parseBlock($block, $lang, $file, $theme);
             },
-            self::$_text
+            $this->_text
         );
     }
 
-    private function parseBlock(string $block, string $lang, string $filePath = '', string $theme = '') : string
+    private function parseBlock(string $block, string $lang, string $filePath = '', string $theme = ''): string
     {
-        if ($lang === 'php') {
-            $highlighter = HighlighterPHP::getInstance($block);
-        } elseif ($lang === 'bash') {
-            $highlighter = HighlighterBash::getInstance($block);
-        } elseif ($lang === 'xml' || $lang === 'html') {
-            $highlighter = HighlighterXML::getInstance($block);
+        $lang = strtolower($lang);
+        if (in_array($lang, PHPFormat::$Keys)) {
+            $highlighter = new PHPFormat($block);
+        } elseif (in_array($lang, BashFormat::$Keys)) {
+            $highlighter = new BashFormat($block);
+        } elseif (in_array($lang, XMLFormat::$Keys)) {
+            $highlighter = new XMLFormat($block);
         } else {
-            $highlighter = HighlighterPHP::getInstance($block);
+            $highlighter = new PHPFormat($block);
         }
         if ($theme) {
             $highlighter->setTheme(new Theme($theme));
@@ -75,7 +79,7 @@ class Highlighter
         return $this->wrapCode($block, $this->_theme::getBackgroundColor(), $filePath);
     }
 
-    private function wrapCode(string $text, string $bgColor = '', string $filePath = '') : string
+    private function wrapCode(string $text, string $bgColor = '', string $filePath = ''): string
     {
         $wrapper = '<div class="code-block-wrapper">';
         if ($this->_showActionPanel) {
@@ -101,7 +105,7 @@ class Highlighter
         return $wrapper;
     }
 
-    private function setLineNumbers(int $count) : string
+    private function setLineNumbers(int $count): string
     {
         // Don't show line number if there is only one line
         if ($count === 1) {
@@ -109,19 +113,19 @@ class Highlighter
         }
 
         $line_numbers = '';
-        for ($i = 1; $i < $count+1; $i++) {
+        for ($i = 1; $i < $count + 1; $i++) {
             $line_numbers .= '<span class="line-number" style="' . Styles::getLineNumberStyle() . '; color: ' . $this->_theme::getDefaultColor() . '">' . $i . '</span>';
         }
 
         return '<div class="line-numbers" style="' . Styles::getLineNumbersStyle() . '">' . $line_numbers . '</div>';
     }
 
-    public function setShowActionPanel(bool $status) : void
+    public function setShowActionPanel(bool $status): void
     {
         $this->_showActionPanel = $status;
     }
 
-    public function setShowLineNumbers(bool $status) : void
+    public function setShowLineNumbers(bool $status): void
     {
         $this->_showLineNumbers = $status;
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace OEngine\Highlight;
+namespace OEngine\Highlight\Formats;
 
 use OEngine\Highlight\Themes\Theme;
 
-class HighlighterBase
+class AFormat
 {
     /** @var string */
-    protected static $_text;
+    protected $_text;
 
     /** @var string[] */
     protected $_keywords = [];
@@ -17,10 +17,10 @@ class HighlighterBase
 
     public function __construct(string $text)
     {
-        self::$_text = $text;
+        $this->_text = $text;
     }
 
-    public function setTheme(Theme $theme) : void
+    public function setTheme(Theme $theme): void
     {
         $this->_theme = $theme;
     }
@@ -30,7 +30,7 @@ class HighlighterBase
      */
     public function highlight()
     {
-        $by_lines = explode(PHP_EOL, self::$_text);
+        $by_lines = explode(PHP_EOL, $this->_text);
         $lines    = [];
         $i        = 1;
         foreach ($by_lines as $key => $line) {
@@ -71,27 +71,22 @@ class HighlighterBase
         return str_replace($word, '<span style="color:' . $color . '">' . $word . '</span>', $line);
     }
 
-    public static function setText(string $text) : void
-    {
-        self::$_text = $text;
-    }
-
-    protected function isVariable(string $word) : bool
+    protected function isVariable(string $word): bool
     {
         return substr($word, 0, 1) === '$' ?? false;
     }
 
-    protected function isFlag(string $word) : bool
+    protected function isFlag(string $word): bool
     {
         return substr($word, 0, 1) === '-' ?? false;
     }
 
-    protected function isKeyword(string $word) : bool
+    protected function isKeyword(string $word): bool
     {
         return in_array($word, $this->_keywords) ?? false;
     }
 
-    protected function isCommentLine(string $word) : bool
+    protected function isCommentLine(string $word): bool
     {
         return substr($word, 0, 1) === '#' ?? false;
     }

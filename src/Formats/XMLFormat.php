@@ -1,28 +1,18 @@
 <?php
 
-namespace OEngine\Highlight;
+namespace OEngine\Highlight\Formats;
 
-class HighlighterXML extends HighlighterBase
+
+class XMLFormat extends AFormat
 {
-    /** @var self*/
-    private static $_instance;
-
-    public static function getInstance(string $text) : self
-    {
-        self::setText($text);
-        if (self::$_instance) {
-            return self::$_instance;
-        }
-
-        return self::$_instance = new self($text);
-    }
+    public static $Keys = ["xml", "html"];
 
     /**
      * @return mixed|string
      */
     public function highlight()
     {
-        $text = htmlspecialchars(self::$_text);
+        $text = htmlspecialchars($this->_text);
         // Brackets
         $text = preg_replace(
             '#&lt;([/]*?)(.*)([\s]*?)&gt;#sU',
