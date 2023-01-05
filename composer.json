@@ -1,0 +1,32 @@
+{
+    "name": "oengine/highlight",
+    "description": "A PHP library for highlighting code syntax.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php-highlight",
+        "php_highlight",
+        "codehighlighter",
+        "codehighlighting",
+        "syntax-highlighting"
+    ],    
+    "authors": [
+        {
+            "name": "nguyen van hau",
+            "email": "nguyenvanhaudev@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "OEngine\\Highlight\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OEngine\\Highlight\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {}
+}
